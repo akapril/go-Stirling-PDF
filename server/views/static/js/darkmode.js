@@ -42,7 +42,7 @@ function setMode(mode) {
 
   if (mode === "on") {
     if (elements && elements.darkModeIcon) {
-      elements.darkModeIcon.src = "moon.svg";
+      elements.darkModeIcon.src = "static/moon.svg";
     }
     if (elements && elements.searchBar) {
       elements.searchBar.classList.add("dark-mode-search");

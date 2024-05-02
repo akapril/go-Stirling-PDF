@@ -24,6 +24,6 @@ func LoadTmpl(param *gin.Engine) {
 	param.StaticFS("/js", http.Dir("server/views/static/js"))
 	param.StaticFS("/pdfjs", http.Dir("server/views/static/pdfjs"))
 
-	param.Delims("{{{", "}}}")
+	// param.Delims("{{{", "}}}")
 	param.LoadHTMLGlob("server/views/templates/**/*")
 }

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html th:lang="${#locale.language}" th:dir="#{language.direction}" th:data-language="${#locale.toString()}" xmlns:th="http://www.thymeleaf.org">
   <head>
-  <th:block th:insert="~{fragments/common :: head(title=#{login.title}, header=#{login.header})}"></th:block>
+  {{ template "fragments/common" .}}
     <link rel="stylesheet" href="css/login.css">
   </head>
 
@@ -137,7 +137,7 @@
           <span th:text="#{changedCredsMessage}">Default message if not found</span>
         </div>
         <form th:action="@{login}" method="post">
-          <img class="mb-4" src="favicon.svg?v=2" alt="" width="144" height="144">
+          <img class="mb-4" src="static/favicon.svg?v=2" alt="" width="144" height="144">
           <h1 class="h1 mb-3 fw-normal" th:text="${@appName}">Stirling-PDF</h1>
           <div th:if="${oAuth2Enabled}">
             <a href="oauth2/authorization/oidc" class="w-100 btn btn-lg btn-primary" th:text="#{login.ssoSignIn}">Login Via SSO</a>
@@ -180,7 +180,8 @@
           <div th:if="${error == 'locked'}" th:text="#{login.locked}">Your account has been locked. </div>
         </div>
       </main>
-      <th:block th:insert="~{fragments/footer.html :: footer}"></th:block>
+      {{ template "fragments/footer" .}}
+      <!-- <th:block th:insert="~{fragments/footer.html :: footer}"></th:block> -->
     </div>
   </body>
 </html>

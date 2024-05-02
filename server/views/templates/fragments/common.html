@@ -1,7 +1,8 @@
+{{define "fragments/common"}}
 <th:block th:fragment="head">
     <!-- Title -->
     <title th:text="${@appName} + (${title} != null and ${title} != '' ? ' - ' + ${title} : '')"></title>
-
+    <title text="{{ .title }}"></title>
     <!-- Metadata -->
     <meta charset="utf-8">
     <meta name="description" th:content="${@appName} + (${header} != null and ${header} != '' ? ' - ' + ${header} : '')">
@@ -130,7 +131,7 @@
         <div id="score">Score: 0</div>
         <div id="high-score">High Score: 0</div>
         <div id="level">Level: 1</div>
-        <img src="favicon.svg" class="player" id="player" alt="favicon">
+        <img src="static/favicon.svg" class="player" id="player" alt="favicon">
       </div>
       <link rel="stylesheet" href="css/game.css">
     </dialog>
@@ -160,3 +161,4 @@
                 </div>
                 <script src="js/fileInput.js"></script>
 </th:block>
+{{end}}

@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html th:lang="${#locale.language}" th:dir="#{language.direction}" th:data-language="${#locale.toString()}" xmlns:th="http://www.thymeleaf.org">
   <head>
-  <th:block th:insert="~{fragments/common :: head(title=#{merge.title}, header=#{merge.header})}"></th:block>
+  {{ template "fragments/common" .}}
     <link rel="stylesheet" href="css/merge.css">
   </head>
 
   <body>
     <div id="page-container">
       <div id="content-wrap">
-        <th:block th:insert="~{fragments/navbar.html :: navbar}"></th:block>
+        {{ template "fragments/navbar" .}}
+        <!-- <th:block th:insert="~{fragments/navbar.html :: navbar}"></th:block> -->
         <br><br>
         <div class="container" id="dropContainer">
           <div class="row justify-content-center">
@@ -33,7 +34,8 @@
           </div>
         </div>
       </div>
-      <th:block th:insert="~{fragments/footer.html :: footer}"></th:block>
+      {{ template "fragments/footer" .}}
+      <!-- <th:block th:insert="~{fragments/footer.html :: footer}"></th:block> -->
     </div>
   </body>
 </html>
