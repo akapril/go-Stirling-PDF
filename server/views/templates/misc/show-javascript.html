@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html th:lang="${#locale.language}" th:dir="#{language.direction}" th:data-language="${#locale.toString()}" xmlns:th="http://www.thymeleaf.org">
   <head>
-  <th:block th:insert="~{fragments/common :: head(title=#{showJS.title}, header=#{showJS.header})}"></th:block>
+  {{ template "fragments/common" .}}
     <link href="css/prism.css" rel="stylesheet">
     <script src="js/thirdParty/prism.js"></script>
     <style>
@@ -16,7 +16,8 @@
   <body>
     <div id="page-container">
       <div id="content-wrap">
-        <th:block th:insert="~{fragments/navbar.html :: navbar}"></th:block>
+        {{ template "fragments/navbar" .}}
+        <!-- <th:block th:insert="~{fragments/navbar.html :: navbar}"></th:block> -->
         <br><br>
         <div class="container">
           <div class="row justify-content-center">
@@ -87,7 +88,8 @@
           </div>
         </div>
       </div>
-      <th:block th:insert="~{fragments/footer.html :: footer}"></th:block>
+      {{ template "fragments/footer" .}}
+      <!-- <th:block th:insert="~{fragments/footer.html :: footer}"></th:block> -->
     </div>
   </body>
 </html>

@@ -10,5 +10,5 @@ type HomeHandler struct {
 }
 
 func (h *HomeHandler) HomeHandler(c *gin.Context) {
-	c.HTML(http.StatusOK, "home.html", gin.H{})
+	c.HTML(http.StatusOK, "home", gin.H{"title": "go-Stirling-PDF"})
 }
