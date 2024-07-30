@@ -1,5 +1,6 @@
-{{define "fragments/navbar"}}
+{{block "fragments/navbar" .}}
 <div th:fragment="navbar" class="mx-auto">
+  {{ Localize `navbar.convert` .}}
           <script src="js/languageSelection.js"></script>
           <script th:inline="javascript">
             const currentVersion = /*[[${@appVersion}]]*/ '';

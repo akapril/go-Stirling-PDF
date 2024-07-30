@@ -1,8 +1,8 @@
-{{define "fragments/common"}}
-<th:block th:fragment="head">
+{{block "fragments/common" .}}
+<!--<th:block th:fragment="head">-->
     <!-- Title -->
     <title th:text="${@appName} + (${title} != null and ${title} != '' ? ' - ' + ${title} : '')"></title>
-    <title text="{{ .title }}"></title>
+    <title text="{{ .Data.title }}"></title>
     <!-- Metadata -->
     <meta charset="utf-8">
     <meta name="description" th:content="${@appName} + (${header} != null and ${header} != '' ? ' - ' + ${header} : '')">
@@ -64,9 +64,11 @@
 	<script src="js/cacheFormInputs.js"></script>
     <script src="js/tab-container.js"></script>
     <script src="js/darkmode.js"></script>
-  </th:block>
+<!--  </th:block>-->
+{{end}}
 
-<th:block th:fragment="game">
+<!--<th:block th:fragment="game">-->
+    {{ define "fragments/common/game"}}
     <dialog id="game-container-wrapper" class="game-container-wrapper" data-bs-modal>
       <script th:inline="javascript">
         console.log("loaded game");
@@ -135,7 +137,8 @@
       </div>
       <link rel="stylesheet" href="css/game.css">
     </dialog>
-</th:block>
+    {{ end }}
+<!--</th:block>-->
 
 <th:block th:fragment="fileSelector(name, multiple)" th:with="accept=${accept} ?: '*/*', inputText=${inputText} ?: #{pdfPrompt}, remoteCall=${remoteCall} ?: true, notRequired=${notRequired} ?: false">
                 <script th:inline="javascript">
@@ -161,4 +164,3 @@
                 </div>
                 <script src="js/fileInput.js"></script>
 </th:block>
-{{end}}
